@@ -12,13 +12,12 @@ from datetime import datetime
 
 class BaseModel():
     """Base class named BaseModel. Stands for parente class"""
-    
     def __init__(self):
         """Initializes attributes for class BaseModel
         Args:
             id: identifier number
             created_at = date of creation
-            updated_at = date of update    
+            updated_at = date of update
         """
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
@@ -30,7 +29,9 @@ class BaseModel():
         return ("[{}] ({}) {}".format(clas, self.id, self.__dict__))
 
     def save(self):
-        """Updates the publict instance attribute updated_at with current time"""
+        """Updates the publict instance attribute updated_at
+            with current time
+        """
         self.updated_at = datetime.now()
 
     def to_dict(self):
