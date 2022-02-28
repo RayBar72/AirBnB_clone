@@ -5,7 +5,6 @@
     The rest of the classes inheritage from it
 """
 
-from ssl import create_default_context
 import uuid
 from datetime import datetime
 
