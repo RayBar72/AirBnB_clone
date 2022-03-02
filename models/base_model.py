@@ -7,20 +7,29 @@
 
 import uuid
 from datetime import datetime
-
+import models
 
 class BaseModel():
     """Base class named BaseModel. Stands for parente class"""
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initializes attributes for class BaseModel
         Args:
             id: identifier number
-            created_at = date of creation
-            updated_at = date of update
+            *args - arguments (not used)
+            **kwargs - keyword arguments
         """
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        if kwargs and kwargs != {}:
+            for k, v in kwargs.items():
+                if k == "created_at" or k == "updated_at":
+                    setattr(self, k, datetime.strptime(v, "%Y-%m-%dT%H:%M:%S.%f"))
+                elif k == "__class__":
+                    continue
+                else:
+                    setattr(self, k, v)
+        else:            
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         """Returns a string for class BaseModel"""
