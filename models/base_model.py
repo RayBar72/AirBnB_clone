@@ -3,6 +3,7 @@
 Create a class Basemodel
 """
 
+from models import storage
 import uuid
 from datetime import datetime
 
@@ -18,16 +19,17 @@ class BaseModel:
                     continue
                 elif key == "created_at":
                     self.created_at = datetime.strptime(value,
-                            '%Y-%m-%dT%H:%M:%S.%f')
+                                                        '%Y-%m-%dT%H:%M:%S.%f')
                 elif key == "updated_at":
                     value = datetime.strptime(value,
-                        '%Y-%m-%dT%H:%M:%S.%f')
+                                              '%Y-%m-%dT%H:%M:%S.%f')
                 else:
                     setattr(self, key, value)
         else:
             self.created_at = datetime.now()
             self.updated_at = self.created_at
             self.id = str(uuid.uuid4())
+            models.storage.new(self)
 
     def __str__(self):
         """return caracteristics of the object"""
@@ -39,6 +41,7 @@ class BaseModel:
             attribute updated_at with the current datetime
         """
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all keys/values
