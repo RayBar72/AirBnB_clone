@@ -3,7 +3,7 @@
 Create a class Basemodel
 """
 
-from models import storage
+from models
 import uuid
 from datetime import datetime
 

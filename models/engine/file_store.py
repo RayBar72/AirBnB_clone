@@ -12,8 +12,8 @@ class FileStorage:
     """serializes instances to a JSON file
         and deserializes JSON file to instances
     """
-    _file_path "ni idea"
-    __objects "ni idea"
+    __file_path = "ni idea"
+    __objects = "ni idea"
 
     def all(self):
         """return dictionary objects"""
