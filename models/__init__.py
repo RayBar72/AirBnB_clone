@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module creates storage var"""
+"""Module that creates storage var"""
 from models.engine.file_storage import FileStorage
 
 

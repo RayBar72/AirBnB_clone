@@ -2,8 +2,10 @@
     JSON file to instances
 """
 from models.base_model import BaseModel
+from models.user import User
 import json
 import os
+
 
 class FileStorage:
     """Class that serializes instances to a JSON
@@ -29,8 +31,18 @@ class FileStorage:
         with open(self.__file_path, "w", encoding="utf-8") as working_file:
             json.dump(tmp_dictionary, working_file)
 
+    def classes(self):
+        """Dictionary with valid classes"""
+        classes = {"BaseModel": BaseModel,
+                   "User": User}
+        return classes
+
     def reload(self):
         """Deserializes the JSON file to __objects"""
-        if os.path.exists('file.json'):
-            with open(self.__file_path, "r") as x:
-                return json.load(x)
+        if not os.path.isfile(FileStorage.__file_path):
+            return
+        with open(FileStorage.__file_path, "r", encoding="utf-8") as x:
+            jfiledict = json.load(x)
+            jfiledict = {k: self.classes()[v["__class__"]](
+                **v) for k, v in jfiledict.items()}
+            FileStorage.__objects = jfiledict
