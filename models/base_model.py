@@ -4,10 +4,10 @@
     This class is the base for the Airbnb clone console
     The rest of the classes inheritage from it
 """
-import uuid
 from datetime import datetime
 import json
 import models
+import uuid
 
 
 class BaseModel():
@@ -40,8 +40,9 @@ class BaseModel():
         return ("[{}] ({}) {}".format(clas, self.id, self.__dict__))
 
     def save(self):
-        """Updates the publict instance attribute updated_at
-            with current time
+        """
+        Updates the publict instance attribute updated_at
+        with current time
         """
         self.updated_at = datetime.now()
         models.storage.save()
