@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ Testing for test base """
+
+import pycodestyle
 import unittest
 from models.base_model import BaseModel
 import models
@@ -9,6 +11,15 @@ from datetime import datetime
 class Test_clase_m(unittest.TestCase):
     """ Test for class mode """
     Model = BaseModel()
+
+    def test_pep8_base(self):
+        """Test pycodestyle for base_model"""
+        syntax = pycodestyle.StyleGuide(quit=True)
+        check = syntax.check_files(['models/base_model.py'])
+        self.assertEqual(
+                check.total_errors, 0,
+                "Pycodestyle errors found in models"
+        )
 
     def test_none(self):
         """ Test for base if thi os none """
@@ -30,10 +41,10 @@ class Test_clase_m(unittest.TestCase):
 
     def test_name_Number(self):
         """ Test for name and number """
-        self.Model.name = "The better team"
-        self.Model.my_number = 2001
-        self.assertEqual(self.Model.name, "The better team")
-        self.assertEqual(self.Model.my_number, 2001)
+        self.Model.name = "Holberton"
+        self.Model.my_number = 2022
+        self.assertEqual(self.Model.name, "Holberton")
+        self.assertEqual(self.Model.my_number, 2022)
 
     def test_class(self):
         """ test for class method """
@@ -48,6 +59,12 @@ class Test_clase_m(unittest.TestCase):
         """ Test for dict"""
         self.assertEqual(type(self.Model.__dict__), dict)
 
+    def test_str(self):
+        """test for str method"""
+        Model = BaseModel()
+        model_str = f'[{BaseModel.__name__}] ({Model.id}) {Model.__dict__}'
+        self.assertEqual(model_str, str(Model))
+    
     def setUp(self):
         """Setting casses for testing enviroment"""
         self.b1 = BaseModel()
