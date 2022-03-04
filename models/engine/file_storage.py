@@ -1,8 +1,13 @@
 """Serializes instances to a JSON file and deserializes
     JSON file to instances
 """
+from models.state import State
+from models.amenity import Amenity
 from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
 from models.user import User
+from models.review import Review
 import json
 import os
 
@@ -34,7 +39,12 @@ class FileStorage:
     def classes(self):
         """Dictionary with valid classes"""
         classes = {"BaseModel": BaseModel,
-                   "User": User}
+                   "User": User,
+                   "State": State,
+                   "City": City,
+                   "Amenity": Amenity,
+                   "Place": Place,
+                   "Review": Review}
         return classes
 
     def reload(self):

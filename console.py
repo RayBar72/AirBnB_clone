@@ -12,6 +12,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """Using EOF"""
+        print()
         return True
 
     def do_quiet(self, line):
