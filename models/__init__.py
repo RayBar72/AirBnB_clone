@@ -1,11 +1,7 @@
 #!/usr/bin/python3
-"""
-Import modules
-"""
+"""Module that creates storage var"""
+from models.engine.file_storage import FileStorage
 
-from models.engine import file_storage
-import relad
 
-storage = file_storage.FileStorage()
+storage = FileStorage()
 storage.reload()
-
