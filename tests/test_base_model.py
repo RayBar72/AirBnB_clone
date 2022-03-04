@@ -48,6 +48,17 @@ class Test_clase_m(unittest.TestCase):
         """ Test for dict"""
         self.assertEqual(type(self.Model.__dict__), dict)
 
+    def setUp(self):
+        """Setting casses for testing enviroment"""
+        self.b1 = BaseModel()
+        self.b2 = BaseModel()
+        self.b1 = "Ray"
+        self.b2 = "Mati"
+
+    def test_3_00_create(self):
+        """Tests the creation of BaseModel"""
+        self.assertTrue(self.b1)
+        self.assertTrue(self.b2) 
 
 if __name__ == '__main__':
     unittest.main()
