@@ -56,5 +56,5 @@ class Test_FS(unittest.TestCase):
         with self.assertRaises(AttributeError):
             self.Fs.__file_path
 
-if __name__ == '__main__':
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()
