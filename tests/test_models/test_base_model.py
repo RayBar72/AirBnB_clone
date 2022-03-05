@@ -98,7 +98,7 @@ class Test_clase_m(unittest.TestCase):
         Model = BaseModel()
         model_str = f'[{BaseModel.__name__}] ({Model.id}) {Model.__dict__}'
         self.assertEqual(model_str, str(Model))
-    
+
     def test_save(self):
         """Test for save method"""
         self.Model.save()
@@ -114,7 +114,7 @@ class Test_clase_m(unittest.TestCase):
     def test_3_00_create(self):
         """Tests the creation of BaseModel"""
         self.assertTrue(self.b1)
-        self.assertTrue(self.b2) 
+        self.assertTrue(self.b2)
 
-if __name__ == '__main__':
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()
