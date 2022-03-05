@@ -2,6 +2,8 @@
 """
 All test for file storage
 """
+
+import os
 import unittest
 from datetime import datetime
 from models.engine.file_storage import FileStorage
@@ -49,13 +51,11 @@ class Test_FS(unittest.TestCase):
         key = user.__class__.__name__ + "." + str(user.id)
         self.assertIsNotNone(obj[key])
 
-    def test_doc_FileStorage_new(self):
-        """ Test for new method """
-        self.assertIsNotNone(self.Fs.new.__doc__)
 
     def test_save(self):
         """ Test for save method """
-        self.assertIsNotNone(self.Fs.save.__doc__)
+        self.Fs.save()
+        self.assertTrue(os.path.exists("file.json"))
 
     def test_reload(self):
         """ Test for reload method """
