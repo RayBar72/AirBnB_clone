@@ -91,17 +91,5 @@ class Test_FileStorage(unittest.TestCase):
                 self.assertEqual(line, "{}")
         self.assertIs(self.Fs.reload(), None) 
 
-    def test_obj(self):
-        """ Test for obj """
-        self.assertEqual(dict, type(self.Fs._FileStorage__objects))
-        with self.assertRaises(AttributeError):
-            self.Fs.__objects
-
-    def test_path(self):
-        """ Test for path """
-        self.assertEqual(str, type(self.Fs._FileStorage__file_path))
-        with self.assertRaises(AttributeError):
-            self.Fs.__file_path
-
     if __name__ == '__main__':
         unittest.main()
