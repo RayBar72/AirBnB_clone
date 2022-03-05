@@ -35,14 +35,19 @@ class Test_FS(unittest.TestCase):
 
     def test_FS_all(self):
         """ Test for all method """
-        self.Fs.all()
-        with self.assertRaises(TypeError):
-            self.Fs.all("PYTHON")
+        obj = self.Fs.all()
+        self.assertIsNotNone(obj)
+        self.assertEqual(type(obj), dict)
 
     def test_FS_new(self):
         """ Test for new method"""
-        with self.assertRaises(TypeError):
-            self.Fs.new()
+        obj = self.Fs.all()
+        user = User()
+        user.id = "0303456"
+        user.name = "Betty"
+        self.Fs.new(user)
+        key = user.__class__.__name__ + "." + str(user.id)
+        self.assertIsNotNone(obj[key])
 
     def test_doc_FileStorage_new(self):
         """ Test for new method """
