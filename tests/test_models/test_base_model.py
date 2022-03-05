@@ -24,6 +24,7 @@ class Test_clase_m(unittest.TestCase):
 
     def test_none(self):
         """ Test for base if thi os none """
+        self.assertIsNone(None, self.Model.__dict__.values())
         self.assertIsNotNone(BaseModel.__doc__)
         self.assertIsNotNone(BaseModel.save.__doc__)
         self.assertIsNotNone(BaseModel.__str__.__doc__)
@@ -68,6 +69,7 @@ class Test_clase_m(unittest.TestCase):
         self.assertEqual(isinstance(self.Model.created_at, datetime), True)
         self.assertEqual(isinstance(self.Model.updated_at, datetime), True)
         self.assertEqual(type(self.Model.created_at), datetime)
+        self.assertEqual(type(self.Model.updated_at), datetime)
 
     def test_dict(self):
         """ Test for dict"""
