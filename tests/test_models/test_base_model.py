@@ -29,7 +29,6 @@ class Test_clase_m(unittest.TestCase):
         self.assertIsNotNone(BaseModel.__str__.__doc__)
         self.assertIsNotNone(BaseModel.__init__.__doc__)
 
-    
     def test_ID(self):
         """ Test for ID """
         model_id = BaseModel()
@@ -80,16 +79,6 @@ class Test_clase_m(unittest.TestCase):
         self.assertEqual(self.Model.__class__.__name__, 'BaseModel')
         self.assertIsInstance(base_dict['created_at'], str)
         self.assertIsInstance(base_dict['updated_at'], str)
-
-    def test_to_dict(self):
-        """Tests the to_dict function."""
-        obj = BaseModel()
-        new_dict = obj.__dict__.copy()
-        new_dict["__class__"] = obj.__class__.__name__
-        new_dict["created_at"] = new_dict["created_at"].isoformat()
-        new_dict["updated_at"] = new_dict["updated_at"].isoformat()
-        comparing = obj.to_dict()
-        self.assertDictEqual(new_dict, comparing)
 
     def test_creation_dic(self):
         """Test for correct creation dictionary"""

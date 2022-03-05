@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This file por valida Unittest of class user
+Test for class user
 """
 from datetime import datetime
 from models.user import User
@@ -41,6 +41,5 @@ class TestUser(unittest.TestCase):
         user2 = User()
         self.assertNotEqual(self.user1.id, user2.id)
 
-
-if __name__ == '__main__':
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()
