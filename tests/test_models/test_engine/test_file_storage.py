@@ -20,7 +20,7 @@ from models.user import User
 from models.review import Review
 
 
-class Test_FS(unittest.TestCase):
+class Test_FileStorage(unittest.TestCase):
     """Test for FileStorage """
     Fs = FileStorage()
 
@@ -56,6 +56,14 @@ class Test_FS(unittest.TestCase):
         """ Test for save method """
         self.Fs.save()
         self.assertTrue(os.path.exists("file.json"))
+
+    def test_empty(self):
+        """test if json is empty or not"""
+        new = BaseModel()
+        conten = new.to_dict()
+        new.save()
+        new2 = BaseModel(**conten)
+        self.assertNotEqual(os.path.getsize("file.json"), 0)
 
     def test_reload(self):
         """ Test for reload method """
