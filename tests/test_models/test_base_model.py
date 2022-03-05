@@ -24,7 +24,6 @@ class Test_clase_m(unittest.TestCase):
 
     def test_none(self):
         """ Test for base if thi os none """
-        self.assertIsNone(None, self.Model.__dict__.values())
         self.assertIsNotNone(BaseModel.__doc__)
         self.assertIsNotNone(BaseModel.save.__doc__)
         self.assertIsNotNone(BaseModel.__str__.__doc__)
@@ -52,11 +51,13 @@ class Test_clase_m(unittest.TestCase):
 
     def test_name_Number(self):
         """ Test for name and number """
+        Model = BaseModel()
         self.Model.name = "Holberton"
         self.Model.my_number = 2022
         self.assertEqual(self.Model.name, "Holberton")
         self.assertEqual(self.Model.my_number, 2022)
         self.assertEqual(type(self.Model.name), str)
+        self.assertEqual(type(Model), BaseModel)
 
     def test_class(self):
         """ test for class method """
