@@ -7,6 +7,15 @@ from datetime import datetime
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 import models
+import json
+import uuid
+from models.state import State
+from models.amenity import Amenity
+from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
+from models.user import User
+from models.review import Review
 
 
 class Test_FS(unittest.TestCase):
@@ -15,11 +24,14 @@ class Test_FS(unittest.TestCase):
 
     def test_doc_FileStorage(self):
         """test doc for class"""
-        self.assertIsNotNone(self.Fs.__doc__)
-
-    def test_doc_FileStorage_all(self):
-        """ Test doc for all method """
+        self.assertTrue(self.Fs.all.__doc__)
         self.assertIsNotNone(self.Fs.all.__doc__)
+        self.assertTrue(self.Fs.new.__doc__)
+        self.assertIsNotNone(self.Fs.new.__doc__)
+        self.assertTrue(self.Fs.save.__doc__)
+        self.assertIsNotNone(self.Fs.save.__doc__)
+        self.assertTrue(self.Fs.reload.__doc__)
+        self.assertIsNotNone(self.Fs.reload.__doc__)
 
     def test_FS_all(self):
         """ Test for all method """
