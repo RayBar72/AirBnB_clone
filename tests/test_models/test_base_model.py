@@ -67,6 +67,7 @@ class Test_clase_m(unittest.TestCase):
         """ Test for data"""
         self.assertEqual(isinstance(self.Model.created_at, datetime), True)
         self.assertEqual(isinstance(self.Model.updated_at, datetime), True)
+        self.assertEqual(type(self.Model.created_at), datetime)
 
     def test_dict(self):
         """ Test for dict"""
