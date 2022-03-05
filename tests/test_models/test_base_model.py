@@ -72,6 +72,10 @@ class Test_clase_m(unittest.TestCase):
         json = self.Model.to_dict()
         self.assertEqual(type(self.Model.__dict__), dict)
         self.assertEqual(json['__class__'], 'BaseModel')
+        base_dict = self.Model.to_dict()
+        self.assertEqual(self.Model.__class__.__name__, 'BaseModel')
+        self.assertIsInstance(base_dict['created_at'], str)
+        self.assertIsInstance(base_dict['updated_at'], str)
 
     def test_creation_dic(self):
         """Test for correct creation dictionary"""
