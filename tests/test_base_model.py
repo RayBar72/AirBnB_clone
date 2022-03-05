@@ -25,19 +25,22 @@ class Test_clase_m(unittest.TestCase):
         """ Test for base if thi os none """
         self.assertIsNone(None, self.Model.__dict__.values())
 
-    def test_BaseM(self):
-        """ Test for testModel global """
+    def test_ID(self):
+        """ Test for ID """
         model_id = BaseModel()
         id = model_id.id
         self.assertNotEqual(id, self.Model.id)
+        self.assertEqual(type(id), str)
 
-    def test_save(self):
+    def test_update(self):
         """ Test fot method save """
-        test_save = BaseModel()
-        update = test_save.updated_at
-        test_save.save()
-        update2 = test_save.updated_at
-        self.assertNotEqual(update, update2)
+        Model = BaseModel()
+        self.assertTrue(hasattr(Model, "updated_at"))
+
+    def test_created(self):
+        """Test fot created"""
+        Model = BaseModel()
+        self.assertTrue(hasattr(Model, "created_at"))
 
     def test_name_Number(self):
         """ Test for name and number """
