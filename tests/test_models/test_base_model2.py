@@ -14,7 +14,7 @@ from models.amenity import Amenity
 from models.state import State
 from models.review import Review
 import os
-import pep8
+import pycodestyle
 import unittest
 import uuid
 
@@ -45,7 +45,7 @@ class TestBaseModel(unittest.TestCase):
         This test is designed to make sure the Python code
         is up to the pep8 standard.
         """
-        syntax = pep8.StyleGuide(quit=True)
+        syntax = pycodestyle.StyleGuide(quit=True)
         check = syntax.check_files(['models/base_model.py'])
         self.assertEqual(
             check.total_errors, 0,
