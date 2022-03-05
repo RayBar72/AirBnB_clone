@@ -67,7 +67,29 @@ class Test_FileStorage(unittest.TestCase):
 
     def test_reload(self):
         """ Test for reload method """
-        self.assertIsNotNone(self.Fs.reload.__doc__)
+        self.Fs.save()
+        Root = os.path.dirname(os.path.abspath("console.py"))
+        path = os.path.join(Root, "objects.json")
+        with open("file.json", 'r') as f:
+            lines = f.readlines()
+        try:
+            os.remove("file.json")
+        except Exception:
+            pass
+        self.Fs.save()
+        with open("file.json", 'r') as f:
+            lines2 = f.readlines()
+        self.assertEqual(lines, lines2)
+        try:
+            os.remove("file.json")
+        except Exception:
+            pass
+        with open("file.json", "w") as f:
+            f.write("{}")
+        with open("file.json", "r") as r:
+            for line in r:
+                self.assertEqual(line, "{}")
+        self.assertIs(self.Fs.reload(), None) 
 
     def test_obj(self):
         """ Test for obj """
