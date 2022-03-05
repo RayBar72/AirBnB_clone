@@ -29,6 +29,12 @@ class Test_clase_m(unittest.TestCase):
         self.assertIsNotNone(BaseModel.__str__.__doc__)
         self.assertIsNotNone(BaseModel.__init__.__doc__)
 
+    def test_method(self):
+        """test correct methods"""
+        self.assertTrue(hasattr(BaseModel, "__init__"))
+        self.assertTrue(hasattr(BaseModel, "save"))
+        self.assertTrue(hasattr(BaseModel, "to_dict"))
+
     def test_ID(self):
         """ Test for ID """
         model_id = BaseModel()
@@ -73,10 +79,9 @@ class Test_clase_m(unittest.TestCase):
 
     def test_dict(self):
         """ Test for dict"""
-        json = self.Model.to_dict()
-        self.assertEqual(type(self.Model.__dict__), dict)
-        self.assertEqual(json['__class__'], 'BaseModel')
         base_dict = self.Model.to_dict()
+        self.assertEqual(type(self.Model.__dict__), dict)
+        self.assertEqual(base_dict['__class__'], 'BaseModel')
         self.assertEqual(self.Model.__class__.__name__, 'BaseModel')
         self.assertIsInstance(base_dict['created_at'], str)
         self.assertIsInstance(base_dict['updated_at'], str)
