@@ -24,7 +24,6 @@ class Test_clase_m(unittest.TestCase):
 
     def test_none(self):
         """ Test for base if thi os none """
-        self.assertIsNone(None, self.Model.__dict__.values())
         self.assertIsNotNone(BaseModel.__doc__)
         self.assertIsNotNone(BaseModel.save.__doc__)
         self.assertIsNotNone(BaseModel.__str__.__doc__)
@@ -33,11 +32,11 @@ class Test_clase_m(unittest.TestCase):
     def test_ID(self):
         """ Test for ID """
         model_id = BaseModel()
-        id = model_id.id
-        self.assertNotEqual(id, self.Model.id)
-        self.assertEqual(type(id), str)
+        mod_id = model_id.id
+        self.assertNotEqual(mod_id, self.Model.id)
+        self.assertEqual(type(mod_id), str)
         self.assertTrue(hasattr(model_id, "id"))
-        uniqid = uuid.UUID(id)
+        uniqid = uuid.UUID(mod_id)
         self.assertEqual(uniqid.version, 4)
 
     def test_update(self):
@@ -54,11 +53,12 @@ class Test_clase_m(unittest.TestCase):
         """ Test for name and number """
         Model = BaseModel()
         self.Model.name = "Holberton"
-        self.Model.my_number = 2022
+        self.Model.my_number = 22
         self.assertEqual(self.Model.name, "Holberton")
-        self.assertEqual(self.Model.my_number, 2022)
+        self.assertEqual(self.Model.my_number, 22)
         self.assertEqual(type(self.Model.name), str)
         self.assertEqual(type(Model), BaseModel)
+        self.assertTrue(hasattr(self.Model, "my_number"))
 
     def test_class(self):
         """ test for class method """
