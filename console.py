@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """File that contains the command interpreter"""
 import cmd
+from itertools import count
 import string
 from models.base_model import BaseModel
 from models import storage
@@ -131,16 +132,34 @@ class HBNBCommand(cmd.Cmd):
                         setattr(storage.all()[key], tokens[2], tokens[3])
                         storage.save()
 
+    def do_count(self, line):
+        """Retrives the number of instances in a class"""
+        compara = ["BaseModel", "User", "State", "City", "Amenity",
+                   "Place", "Review"]
+        if line in compara:
+            i = 0
+            j_obj = storage.all()
+            for k, v in j_obj.items():
+                if line in k:
+                    i += 1
+            print(i)
+        else:
+            print("** class doesn't exist **")
+
     def default(self, line):
         """Method called when an input line commmand is not recognaized"""
         compara = ["BaseModel", "User", "State", "City", "Amenity",
                    "Place", "Review"]
         for c in compara:
+            tokens = line.split(".")
             c_all = c + "." + "all()"
+            c_count = c + "." + "count()"
             if line == c_all:
-                tokens = line.split(".")
                 line = "all " + tokens[0]
                 HBNBCommand.do_all(self, line)
+            elif line == c_count:
+                line = tokens[0]
+                HBNBCommand.do_count(self, line)
 
 
 if __name__ == "__main__":
