@@ -51,7 +51,6 @@ class Test_FileStorage(unittest.TestCase):
         key = user.__class__.__name__ + "." + str(user.id)
         self.assertIsNotNone(obj[key])
 
-
     def test_save(self):
         """ Test for save method """
         self.Fs.save()
@@ -89,7 +88,7 @@ class Test_FileStorage(unittest.TestCase):
         with open("file.json", "r") as r:
             for line in r:
                 self.assertEqual(line, "{}")
-        self.assertIs(self.Fs.reload(), None) 
+        self.assertIs(self.Fs.reload(), None)
 
     if __name__ == '__main__':
         unittest.main()

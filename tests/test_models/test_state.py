@@ -17,7 +17,7 @@ class Test_state(unittest.TestCase):
         st.name = "Montevideo"
         self.assertTrue(hasattr(st, "name"))
         self.assertIsInstance(st.name, str)
-    
+
     def test_ids(self):
         """ test for two ids"""
         self._state1 = State()

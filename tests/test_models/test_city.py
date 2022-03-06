@@ -6,6 +6,7 @@ Test for city class
 import unittest
 from models.city import City
 
+
 class Test_city(unittest.TestCase):
     """
     Test for the correcty funcionning of city
@@ -26,4 +27,3 @@ class Test_city(unittest.TestCase):
 
     if __name__ == '__main__':
         unittest.main()
-
