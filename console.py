@@ -152,14 +152,24 @@ class HBNBCommand(cmd.Cmd):
                    "Place", "Review"]
         for c in compara:
             tokens = line.split(".")
-            c_all = c + "." + "all()"
-            c_count = c + "." + "count()"
+            tokens_par1 = tokens[1].split("(")
+            tokens_par2 = tokens_par1[1].split(")")
+            tokens_com = tokens_par2[0].split('"')
+            c_all = c + ".all()"
+            c_count = c + ".count()"
+            c_show = c + ".show(" + tokens_par2[0] + ")"
             if line == c_all:
                 line = "all " + tokens[0]
                 HBNBCommand.do_all(self, line)
+                break
             elif line == c_count:
                 line = tokens[0]
                 HBNBCommand.do_count(self, line)
+                break
+            elif line == c_show:
+                line = tokens[0] + " " + tokens_com[1]
+                HBNBCommand.do_show(self, line)
+                break
 
 
 if __name__ == "__main__":
