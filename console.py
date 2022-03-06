@@ -134,7 +134,7 @@ class HBNBCommand(cmd.Cmd):
         """Catches the commands that not match"""
         print('default({})'.format(line))
         return cmd.Cmd.default(self, line)
-S
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
