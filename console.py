@@ -130,11 +130,6 @@ class HBNBCommand(cmd.Cmd):
                         setattr(storage.all()[key], tokens[2], tokens[3])
                         storage.save()
 
-    def default(self, line):
-        """Catches the commands that not match"""
-        print('default({})'.format(line))
-        return cmd.Cmd.default(self, line)
-
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
