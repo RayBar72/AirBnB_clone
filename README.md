@@ -1,9 +1,5 @@
 # AirBnB clone
 
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/91102932/156946110-ecfcf90e-31dd-4947-b2c1-b5d1b6b2fd77.png">
-</p>
-
 ## Presentation
 
 This project is the first step towards building an AirBnB clone.
