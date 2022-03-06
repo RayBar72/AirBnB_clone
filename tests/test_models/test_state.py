@@ -1,16 +1,13 @@
 #!/usr/bin/python3
 """
 Test for state class
-"""
 
 from models.state import State
 import unittest
 
 
 class Test_state(unittest.TestCase):
-    """
     Test for the correct functioning of state
-    """
     def test_validate(self):
         """ validate arguments save"""
         st = State()
@@ -26,3 +23,4 @@ class Test_state(unittest.TestCase):
 
     if __name__ == '__main__':
         unittest.main()
+"""
