@@ -7,6 +7,6 @@ import unittest
 
 class Test_review(unittest.TestCase):
     """test for correct funcioning of review"""
-     def test_doc(self):
-         """test for documentation"""
-         self.assertTrue(len(Review.__doc__) > 0)
+    def test_doc(self):
+        """test for documentation"""
+        self.assertTrue(len(Review.__doc__) > 0)
