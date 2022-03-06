@@ -16,6 +16,7 @@ class Testamenity(unittest.TestCase):
     def test_Amenity(self):
         """ test for correct name, class and subclass"""
         amenity = Amenity()
+        self.assertEqual(type(amenity), Amenity)
         self.assertEqual(amenity.__class__.__name__, "Amenity")
         self.assertTrue(issubclass(amenity.__class__, BaseModel))
         self.assertEqual(amenity.__class__, Amenity)
@@ -43,6 +44,7 @@ class Testamenity(unittest.TestCase):
         """ Test for validate id between both instances """
         self.amenity1 = Amenity()
         self.amenity2 = Amenity()
+        self.assertEqual(type(self.amenity1.id), str)
         self.assertNotEqual(self.amenity1.id, self.amenity2.id)
 
     def test_validatearg(self):
@@ -52,6 +54,5 @@ class Testamenity(unittest.TestCase):
         self.assertTrue(hasattr(self.amenity, "name"))
         self.assertIsInstance(self.amenity.name, str)
 
-
-if __name__ == '__main__':
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()
