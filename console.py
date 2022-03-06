@@ -20,8 +20,8 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
-    def do_quiet(self, line):
-        """Quiet for exit the command interpreter"""
+    def do_quit(self, line):
+        """Quit for exit the command interpreter"""
         return True
 
     def empyline(self):
