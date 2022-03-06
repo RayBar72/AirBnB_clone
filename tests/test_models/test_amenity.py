@@ -12,7 +12,7 @@ import json
 
 class Testamenity(unittest.TestCase):
     """Test for the correct funcionamiento of amenity"""
-    
+
     def test_Amenity(self):
         """ test for correct name, class and subclass"""
         amenity = Amenity()
