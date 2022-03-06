@@ -7,6 +7,7 @@ from models.amenity import Amenity
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
+import json
 
 
 class Testamenity(unittest.TestCase):
@@ -18,7 +19,10 @@ class Testamenity(unittest.TestCase):
         self.assertEqual(amenity.__class__.__name__, "Amenity")
         self.assertTrue(issubclass(amenity.__class__, BaseModel))
         self.assertEqual(amenity.__class__, Amenity)
-        
+        self.assertEqual(type(amenity.__str__()), str)
+        self.assertNotEqual(len(amenity.__str__()), 0)
+        self.assertEqual(type(amenity.to_dict()), dict)
+
     def test_creatupdat(self):
         """created for created and updated"""
         amenity = Amenity()
