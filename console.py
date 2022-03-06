@@ -24,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
         """Quit for exit the command interpreter"""
         return True
 
-    def empyline(self):
+    def emptyline(self):
         """Passing when empty line"""
         pass
 
