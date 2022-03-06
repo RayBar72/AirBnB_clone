@@ -158,6 +158,7 @@ class HBNBCommand(cmd.Cmd):
             c_all = c + ".all()"
             c_count = c + ".count()"
             c_show = c + ".show(" + tokens_par2[0] + ")"
+            c_destroy = c + ".destroy(" + tokens_par2[0] + ")"
             if line == c_all:
                 line = "all " + tokens[0]
                 HBNBCommand.do_all(self, line)
@@ -169,6 +170,10 @@ class HBNBCommand(cmd.Cmd):
             elif line == c_show:
                 line = tokens[0] + " " + tokens_com[1]
                 HBNBCommand.do_show(self, line)
+                break
+            elif line == c_destroy:
+                line = tokens[0] + " " + tokens_com[1]
+                HBNBCommand.do_destroy(self, line)
                 break
 
 
