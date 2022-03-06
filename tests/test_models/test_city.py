@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 """
 Test for city class
-"""
+
 
 import unittest
 from models.city import City
 
 
 class Test_city(unittest.TestCase):
-    """
     Test for the correcty funcionning of city
-    """
+    
     def test_argtms(self):
-        """Test arguments of the class"""
+        #"""Test arguments of the class"""
         self._city = City()
         self.assertTrue(hasattr(self._city, "state_id"))
         self.assertTrue(hasattr(self._city, "name"))
@@ -27,3 +26,4 @@ class Test_city(unittest.TestCase):
 
     if __name__ == '__main__':
         unittest.main()
+"""
