@@ -23,6 +23,10 @@ class Testamenity(unittest.TestCase):
         self.assertEqual(type(amenity.__str__()), str)
         self.assertNotEqual(len(amenity.__str__()), 0)
         self.assertEqual(type(amenity.to_dict()), dict)
+        self.assertIsNotNone(Amenity.__doc__)
+        self.assertIsNotNone(Amenity.save.__doc__)
+        self.assertIsNotNone(Amenity.to_dict.__doc__)
+        self.assertIsNotNone(Amenity.__str__.__doc__)
 
     def test_creatupdat(self):
         """created for created and updated"""
