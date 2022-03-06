@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Test for amenity class
-"""
+
 
 from models.amenity import Amenity
 import unittest
@@ -12,7 +12,7 @@ import json
 
 class Testamenity(unittest.TestCase):
     """Test for the correct funcionamiento of amenity"""
-
+"""
     def test_Amenity(self):
         """ test for correct name, class and subclass"""
         amenity = Amenity()
@@ -60,3 +60,4 @@ class Testamenity(unittest.TestCase):
 
     if __name__ == '__main__':
         unittest.main()
+"""
