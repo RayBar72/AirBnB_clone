@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """File that contains the command interpreter"""
-from cmath import e
 import cmd
 from models.base_model import BaseModel
 from models import storage
@@ -9,6 +8,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+from models.state import State
 
 
 class HBNBCommand(cmd.Cmd):
