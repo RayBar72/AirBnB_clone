@@ -9,8 +9,8 @@ from datetime import datetime
 import uuid
 
 
-class Test_clase_m(unittest.TestCase):
-    """ Test for class mode """
+class Test_Base_model(unittest.TestCase):
+    """ Test for base model """
     Model = BaseModel()
 
     def test_pep8_base(self):
@@ -102,6 +102,14 @@ class Test_clase_m(unittest.TestCase):
         """Test for save method"""
         self.Model.save()
         self.assertNotEqual(self.Model.created_at, self.Model.updated_at)
+
+    def test_save2(self):
+        """test for save"""
+        teest_save = BaseModel()
+        update = teest_save.updated_at
+        teest_save.save()
+        update2 = teest_save.updated_at
+        self.assertNotEqual(update, uptade2)
 
     if __name__ == '__main__':
         unittest.main()
