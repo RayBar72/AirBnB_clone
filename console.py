@@ -38,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
                 x = eval(args[0])()
                 x.save()
                 print(x.id)
-            except:
+            except Exception as e:
                 print("** class doesn't exist **")
 
     def do_show(self, line):
@@ -130,6 +130,11 @@ class HBNBCommand(cmd.Cmd):
                         setattr(storage.all()[key], tokens[2], tokens[3])
                         storage.save()
 
+    def default(self, line):
+        """Catches the commands that not match"""
+        print('default({})'.format(line))
+        return cmd.Cmd.default(self, line)
+S
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
