@@ -1,7 +1,7 @@
 # AirBnB clone
 
 <p align="center">
-    <img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20220302%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220302T103938Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=26ca96e62ef896b7883cacd708e980ba86fe99eec2a26744cb752c37dd448375">
+    <img src="https://user-images.githubusercontent.com/91102932/156946110-ecfcf90e-31dd-4947-b2c1-b5d1b6b2fd77.png">
 </p>
 
 ## Presentation
