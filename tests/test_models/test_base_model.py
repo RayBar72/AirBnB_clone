@@ -99,17 +99,12 @@ class Test_Base_model(unittest.TestCase):
         self.assertEqual(model_str, str(Model))
 
     def test_save(self):
-        """Test for save method"""
-        self.Model.save()
-        self.assertNotEqual(self.Model.created_at, self.Model.updated_at)
-
-    def test_save2(self):
         """test for save"""
         teest_save = BaseModel()
         update = teest_save.updated_at
         teest_save.save()
         update2 = teest_save.updated_at
-        self.assertNotEqual(update, uptade2)
+        self.assertNotEqual(update, update2)
 
     if __name__ == '__main__':
         unittest.main()
