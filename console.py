@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 """File that contains the command interpreter"""
+from cmath import e
 import cmd
-import argparse
 from models.base_model import BaseModel
 from models import storage
+from models.user import User
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -27,12 +32,14 @@ class HBNBCommand(cmd.Cmd):
         """Creates an instance"""
         if line == "" or line is None:
             print("** class name missing **")
-        elif line not in storage.classes():
-            print("** class doesn't exist **")
         else:
-            x = BaseModel()
-            x.save()
-            print(x.id)
+            args = line.split()
+            try:
+                x = eval(args[0])()
+                x.save()
+                print(x.id)
+            except e:
+                print("** class doesn't exist **")
 
     def do_show(self, line):
         """
@@ -110,7 +117,18 @@ class HBNBCommand(cmd.Cmd):
                 if key not in storage.all():
                     print("** no instance found **")
                 else:
-                    setattr(storage.all()[key], tokens[2], tokens[3])
+                    t3 = tokens[3].strip('\"')
+                    if hasattr(key, tokens[2]) is True:
+                        att_t = type(getattr(key, tokens[2]))
+                        if att_t == int:
+                            setattr(storage.all(key), tokens[2], int(t3))
+                            storage.save()
+                        elif att_t == float:
+                            setattr(storage.all(key), tokens[2], float(t3))
+                            storage.save()
+                    else:
+                        setattr(storage.all()[key], tokens[2], tokens[3])
+                        storage.save()
 
 
 if __name__ == "__main__":
