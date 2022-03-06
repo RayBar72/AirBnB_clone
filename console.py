@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """File that contains the command interpreter"""
 import cmd
+import string
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
@@ -129,6 +130,17 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         setattr(storage.all()[key], tokens[2], tokens[3])
                         storage.save()
+
+    def default(self, line):
+        """Method called when an input line commmand is not recognaized"""
+        compara = ["BaseModel", "User", "State", "City", "Amenity",
+                   "Place", "Review"]
+        for c in compara:
+            c_all = c + "." + "all()"
+            if line == c_all:
+                tokens = line.split(".")
+                line = "all " + tokens[0]
+                HBNBCommand.do_all(self, line)
 
 
 if __name__ == "__main__":
