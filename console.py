@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """File that contains the command interpreter"""
 import cmd
+from itertools import count
+import string
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
@@ -129,6 +131,45 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         setattr(storage.all()[key], tokens[2], tokens[3])
                         storage.save()
+
+    def do_count(self, line):
+        """Retrives the number of instances in a class"""
+        compara = ["BaseModel", "User", "State", "City", "Amenity",
+                   "Place", "Review"]
+        if line in compara:
+            i = 0
+            j_obj = storage.all()
+            for k, v in j_obj.items():
+                if line in k:
+                    i += 1
+            print(i)
+        else:
+            print("** class doesn't exist **")
+
+    def default(self, line):
+        """Method called when an input line commmand is not recognaized"""
+        compara = ["BaseModel", "User", "State", "City", "Amenity",
+                   "Place", "Review"]
+        for c in compara:
+            tokens = line.split(".")
+            tokens_par1 = tokens[1].split("(")
+            tokens_par2 = tokens_par1[1].split(")")
+            tokens_com = tokens_par2[0].split('"')
+            c_all = c + ".all()"
+            c_count = c + ".count()"
+            c_show = c + ".show(" + tokens_par2[0] + ")"
+            if line == c_all:
+                line = "all " + tokens[0]
+                HBNBCommand.do_all(self, line)
+                break
+            elif line == c_count:
+                line = tokens[0]
+                HBNBCommand.do_count(self, line)
+                break
+            elif line == c_show:
+                line = tokens[0] + " " + tokens_com[1]
+                HBNBCommand.do_show(self, line)
+                break
 
 
 if __name__ == "__main__":
