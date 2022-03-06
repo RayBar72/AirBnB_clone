@@ -27,4 +27,27 @@ class Testamenity(unittest.TestCase):
         self.assertTrue(hasattr(amenity, "updated_at"), True)
         self.assertEqual(type(amenity.updated_at), datetime)
 
+    def test_str(self):
+        """ Test for validate str format"""
+        self.amenity = Amenity()
+        string = "[{}] ({}) {}".format(self.amenity.__class__.__name__,
+                                       self.amenity.id,
+                                       self.amenity.__dict__)
+        self.assertEqual(str(self.amenity), string)
 
+    def test_equal(self):
+        """ Test for validate id between both instances """
+        self.amenity1 = Amenity()
+        self.amenity2 = Amenity()
+        self.assertNotEqual(self.amenity1.id, self.amenity2.id)
+
+    def test_validatearg(self):
+        """ Test to validate argumets save """
+        self.amenity = Amenity()
+        self.amenity.name = "Bañera"
+        self.assertTrue(hasattr(self.amenity, "name"))
+        self.assertIsInstance(self.amenity.name, str)
+
+
+if __name__ == '__main__':
+    unittest.main()
