@@ -24,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
         """Quit for exit the command interpreter"""
         return True
 
-    def empyline(self):
+    def emptyline(self):
         """Passing when empty line"""
         pass
 
@@ -129,11 +129,6 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         setattr(storage.all()[key], tokens[2], tokens[3])
                         storage.save()
-
-    def default(self, line):
-        """Catches the commands that not match"""
-        print('default({})'.format(line))
-        return cmd.Cmd.default(self, line)
 
 
 if __name__ == "__main__":
