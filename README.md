@@ -1,9 +1,5 @@
 # AirBnB clone
 
-<p align="center">
-    <video src="https://www.youtube.com/watch?v=p00ES-5K4C8&t=4s"></video>
-</p>
-
 ## Presentation
 
 This project is the first step towards building an AirBnB clone.
