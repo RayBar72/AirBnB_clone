@@ -24,6 +24,8 @@ class Test_Base_model(unittest.TestCase):
 
     def test_none(self):
         """ Test for base if thi os none """
+        non = BaseModel(None)
+        self.assertNotIn(None, non.__dict__.values())
         self.assertIsNotNone(BaseModel.__doc__)
         self.assertIsNotNone(BaseModel.save.__doc__)
         self.assertIsNotNone(BaseModel.__str__.__doc__)
@@ -79,6 +81,7 @@ class Test_Base_model(unittest.TestCase):
         self.assertEqual(self.Model.__class__.__name__, 'BaseModel')
         self.assertIsInstance(base_dict['created_at'], str)
         self.assertIsInstance(base_dict['updated_at'], str)
+        self.assertNotEqual(base_dict), self.Model.__dict__)
 
     def test_creation_dic(self):
         """Test for correct creation dictionary"""
