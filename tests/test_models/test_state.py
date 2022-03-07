@@ -5,6 +5,7 @@ Test for state class
 
 from models.state import State
 import unittest
+from models.base_model import BaseModel
 
 
 class Test_state(unittest.TestCase):
@@ -23,6 +24,13 @@ class Test_state(unittest.TestCase):
         self._state1 = State()
         self._state2 = State()
         self.assertNotEqual(self._state1.id, self._state2.id)
+
+    def test_none(self):
+        """test for state none"""
+        self.state = State()
+        self.state.name = None
+        self.assertTrue(hasattr(self.state, "name"))
+        self.assertEqual(None, self.state.name)
 
     if __name__ == '__main__':
         unittest.main()
