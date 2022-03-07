@@ -25,5 +25,13 @@ class Test_city(unittest.TestCase):
         id2 = City()
         self.assertNotEqual(id1.id, id2.id)
 
+    def test_str(self):
+        """ Test for validate str format"""
+        self.city = City()
+        string = "[{}] ({}) {}".format(self.city.__class__.__name__,
+                                       self.city.id,
+                                       self.city.__dict__)
+        self.assertEqual(str(self.city), string) 
+
     if __name__ == '__main__':
         unittest.main()
