@@ -8,15 +8,16 @@ import unittest
 
 
 class TestUser(unittest.TestCase):
+    """ test for correct functioning of user"""
 
     def setUp(self):
-        """ Test for Setsup an instance of a User """
+        """ Test for Setsup"""
         self.user1 = User()
         self.user2 = User()
         self.user3 = User()
 
     def tearDown(self):
-        """ Test for Delete an instance of a User """
+        """ Test for Delete"""
         del self.user1
         del self.user2
         del self.user3
@@ -36,8 +37,8 @@ class TestUser(unittest.TestCase):
                                        self.user1.__dict__)
         self.assertEqual(str(self.user1), string)
 
-    def test_equal(self):
-        """ Test for validate id between both instances """
+    def test_validid(self):
+        """ Test for validate two ids"""
         user2 = User()
         self.assertNotEqual(self.user1.id, user2.id)
 

@@ -45,7 +45,7 @@ class Testamenity(unittest.TestCase):
         self.assertEqual(str(self.amenity), string)
 
     def test_equal(self):
-        """ Test for validate id between both instances """
+        """ Test for validate two ids"""
         self.amenity1 = Amenity()
         self.amenity2 = Amenity()
         self.assertEqual(type(self.amenity1.id), str)
