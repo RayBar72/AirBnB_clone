@@ -18,6 +18,7 @@ class Test_city(unittest.TestCase):
         self.assertTrue(hasattr(self._city, "name"))
         self.assertIsInstance(self._city.name, str)
         self.assertIsInstance(self._city.state_id, str)
+        self.assertTrue(issubclass(type(self._city), BaseModel)
 
     def test_ids(self):
         """test for two ids"""
