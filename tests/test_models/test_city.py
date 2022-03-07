@@ -4,6 +4,7 @@ Test for city class
 """
 
 import unittest
+from models.base_model import BaseModel
 from models.city import City
 
 
@@ -18,7 +19,7 @@ class Test_city(unittest.TestCase):
         self.assertTrue(hasattr(self._city, "name"))
         self.assertIsInstance(self._city.name, str)
         self.assertIsInstance(self._city.state_id, str)
-        self.assertTrue(issubclass(type(self._city), BaseModel)
+        self.assertTrue(issubclass(type(self._city), BaseModel))
 
     def test_ids(self):
         """test for two ids"""
@@ -32,7 +33,7 @@ class Test_city(unittest.TestCase):
         string = "[{}] ({}) {}".format(self.city.__class__.__name__,
                                        self.city.id,
                                        self.city.__dict__)
-        self.assertEqual(str(self.city), string) 
+        self.assertEqual(str(self.city), string)
 
     if __name__ == '__main__':
         unittest.main()

@@ -91,6 +91,10 @@ class Test_Base_model(unittest.TestCase):
         self.assertEqual(my_base.id, "7734cf23-6c89-4662-8483-284727324c77")
         self.assertEqual(type(my_base.created_at), type(date))
         self.assertEqual(type(my_base.updated_at), type(date))
+        self.assertEqual(self.Model.to_dict()["created_at"],
+                         self.Model.created_at.isoformat())
+        self.assertEqual(self.Model.to_dict()["updated_at"],
+                         self.Model.updated_at.isoformat())
 
     def test_str(self):
         """test for str method"""
