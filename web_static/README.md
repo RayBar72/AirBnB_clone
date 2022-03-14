@@ -1,11 +1,8 @@
-<img src="https://blog.holbertonschool.com/wp-content/uploads/2020/04/unnamed-2.png" width="170" height="210">
+<img src="images/log.png" width="170" height="210">
 
 # AirBnB clone - Web static
 
-## Developed in:
-<img src="https://img.icons8.com/color/48/000000/html-5--v1.png"/>
-<img src="https://img.icons8.com/color/48/000000/css3.png"/>
-## Learning Objetives
+Learning Objetives
 **General**
 
 * What is HTML
