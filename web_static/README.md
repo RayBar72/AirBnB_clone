@@ -1,4 +1,4 @@
-<img src="images/log.png" width="170" height="210">
+<img src="./images/log.png" width="170" height="210">
 
 # AirBnB clone - Web static
 
